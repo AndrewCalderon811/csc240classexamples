@@ -1,12 +1,8 @@
 /* Activity 3 - create a header file */
 #include<stdio.h>
-
-#define PI 3.14159
-
-int square(int x) {
-    return x * x;
-}
-
+#ifndef _MYMATH_H
+#include"mymath.h"
+#endif
 int main() {
   int radius;
   double area;
