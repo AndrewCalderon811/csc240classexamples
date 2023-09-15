@@ -1,13 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include"term.h"
 
 char * term_to_string(const term_t* term){
-    char* ret;
-    char arr[3];
-
-    arr[0] = term->coefficient;
-    arr[1] = term->var;
-    arr[2] = term->exponent;
-    ret = arr;
+    char* ret = malloc((sizeof(int) * 10) + sizeof(char));
+    sprintf(ret, "%d %c ^ %d   ", term->coefficient, term->var, term->exponent);
+    
     return ret;
 }

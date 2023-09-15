@@ -13,5 +13,6 @@ poly_t * new_polynomial();
 void print_polynomial(const poly_t * poly);
 void add_to_polynomial(poly_t * poly, const term_t * term);
 void delete_polynomial(poly_t ** poly);
+poly_t* combine_like_terms(const poly_t* poly);
 
 #endif

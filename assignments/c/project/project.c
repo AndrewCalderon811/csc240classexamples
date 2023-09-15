@@ -63,6 +63,14 @@ int main() {
     /* 
         ADD CODE HERE TO ADD THE TERMS IN term_list TO A NEW POLYNOMIAL 
     */
+   poly1 = new_polynomial();
+   curr = term_list;
+
+   while(curr != NULL){
+        term_t* ptr = curr->data;
+        add_to_polynomial(poly1, ptr);
+        curr = curr->next;
+    }
 
     
 

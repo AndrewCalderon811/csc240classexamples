@@ -22,3 +22,22 @@ int main()
 }
 
 /* Include implementations of your functions below */
+int seq(int n){
+    if(n <= 1){
+        return n;
+    }
+    else{
+        return ((n * n) + n * seq(n-1) + seq(n-2));
+    }
+}
+
+void double_it(int * n){
+    int temp;
+    temp = *n;
+    temp = temp * 2;
+    *n = temp;
+}
+
+int triple_it(int n){
+    return n * 3;
+}
