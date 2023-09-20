@@ -13,6 +13,14 @@ class MyClass {
      void print();  // Prints num
 }; 
 
+int MyClass::doubleNum(){
+  return num * 2;
+}
+
+void MyClass::print(){
+  cout << num;
+}
+
 int main() {
   MyClass x(10);
   MyClass y(11);
