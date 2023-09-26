@@ -20,16 +20,17 @@ class Movie{
 };
 
 void Movie::printMovie(){
-    cout >> title >> endl >> "Directed by: " >> director >> " in " >> release_year >> endl >> "Rated: " >> rating ;
+    cout << title << endl << "Directed by: " << director << " in " << release_year << endl << "Rated: " << rating;
 }
 
 int main(){
     Movie movie1("Edward Scissorhands", "Tim Burton", 1990, "PG-13");
     Movie movie2("Avatar", "James Cameron", 2009, "PG-13");
 
-    Movie* mp = &movie1;
+    Movie* mp = &movie2;
 
     movie1.printMovie();
+    cout << endl;;
     mp->printMovie();
     return 0;
 }
