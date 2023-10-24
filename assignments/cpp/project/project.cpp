@@ -53,7 +53,7 @@ int main() {
 
     std::vector<Term> term_list;
 
-    cout << "NAME: SAMPLE OUTPUT" << endl << endl;
+    cout << "NAME: Andrew Calderon" << endl << endl;
 
     // Test Term object
     cout << "Testing term.cpp/hpp:" << endl;
@@ -86,6 +86,6 @@ int main() {
     poly2.print();
     cout << endl << endl;
 
-    cout << "NAME: SAMPLE OUTPUT" << endl;;
+    cout << "NAME: Andrew Calderon" << endl;;
     return 0;
 }
