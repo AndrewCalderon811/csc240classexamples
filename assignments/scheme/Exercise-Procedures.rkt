@@ -30,4 +30,15 @@
   (lambda (a b c)
     (+ (expt a 2) (expt b 2) (expt c 2))))
 
+(define four-in-a-row
+  (lambda (l m n o)
+    (if (< l m n o)
+    #t
+    #f)))
+
+(define fifth-element
+  (lambda (lst)
+    (car (cdr (cdr (cdr (cdr lst)))))))
+
+
 
