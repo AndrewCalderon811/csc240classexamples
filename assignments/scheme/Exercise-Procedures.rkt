@@ -38,7 +38,23 @@
 
 (define fifth-element
   (lambda (lst)
-    (car (cdr (cdr (cdr (cdr lst)))))))
+    (if (< (length lst) 5)
+        '()
+        (car (cdr (cdr (cdr (cdr lst))))))))
 
+(define car-to-cdr-power
+  (lambda (lst)
+    (if (< (length lst) 2)
+        (car lst)
+        (expt (car lst) (car (cdr lst))))))
+
+(define div-by-small-prime
+  (lambda (n)
+    (cond
+      ((= (remainder n 2) 0) #t)
+      ((= (remainder n 3) 0) #t)
+      ((= (remainder n 5) 0) #t)
+      ((= (remainder n 7) 0) #t)
+      (else #f))))
 
 
