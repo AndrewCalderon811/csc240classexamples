@@ -21,15 +21,25 @@
         (list (car lst)))))
 
 
-    
+
 (define deep-search
   (lambda (lst X)
-    (map (lambda (x)
-           (if (list? x)
-               (deep-search x X)
-               (if (eq? x X)
-                   #t
-                   #f)) lst))))
+    (if (number? lst)
+        (eq? lst X)
+        (map (lambda (list-term)
+               (if (list? list-term)
+                   (deep-search list-term X)
+                   (if (eq? X list-term)
+                       #t
+                       #f))) lst))))
+
+(define inorder
+  (lambda (lst)
+    (if (null? lst)
+        '()
+        (if (pair? (car lst))
+            (inorder (car lst))
+            (append (car lst) (inorder (car lst)))))))
 
 
        
