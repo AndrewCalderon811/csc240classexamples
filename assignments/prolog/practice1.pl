@@ -12,3 +12,27 @@ show(for_all_mankind, 2019, 7.9).
 show(shadow_and_bone, 2019, 7.7).
 show(the_mandalorian, 2019, 8.8).
 show(loki, 2021, 8.3).
+
+% Rules
+good_show(Name) :- show(Name, _, Rating), Rating >= 8.9.
+
+same_year(Name1, Name2) :-
+    show(Name1, Year1, _),
+    show(Name2, Year2, _),
+    Year1 = Year2.
+
+
+quad(Arg1, Arg2) :- Arg2 is Arg1 * 4.
+
+ispos(X) :- X >= 0.
+isneg(X) :- X < 0.
+
+bloop(X, Y) :- ispos(X), Y is X * 2.
+bloop(X, Y) :- isneg(X), Y is X / 2.
+
+mult(X, Y, Z) :- Z is X * Y.
+
+
+
+absol(X, Y) :- Y is abs(X).
+
