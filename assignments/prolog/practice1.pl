@@ -32,6 +32,8 @@ bloop(X, Y) :- isneg(X), Y is X / 2.
 
 mult(X, Y, Z) :- Z is X * Y.
 
+bigger(X, Y, Z) :- X < Y, Z is Y.
+bigger(X, Y, Z) :- X > Y, Z is X.
 
 
 absol(X, Y) :- Y is abs(X).
