@@ -1,31 +1,39 @@
-% Texas borders - OK, AR, LA
-% Oklahoma borders - TX, AR
-% Arkansas borders - TX, OK, MI, LA
-% Lousiana borders - TX, AR, MI
-% Mississippi borders - LA, AR
-
-% Order - TX, OK, LA, MI, AR
-% Valid colors - Red, Green, Blue
-% Solution : Red, Green, Green, Red, Blue
 
 color(red).
 color(green).
 color(blue).
+states(R, G, G, R, B) :- color(R), color(G), color(B).
 
-states(R, G, G, R, B) :- color(R), color(G), color(B), !.
 
 myabs(X, Y) :- X < 0, Y is X * -1, !.
-myabs(X, X) :- !.
-manhattan([H1 | T1], [H2 | T2], Ret) :- Holder is (H2 - H1) + (T2 - T1), myabs(Holder, Ret).
-
-% split_after(Lst, Index, Car, Cdr)
+myabs(X, X).
+manhattan([H1 | T1], [H2 | T2], Ret) :- myabs(H2 - H1, X), myabs(T2 - T1, Y),  Ret is X + Y.
 
 
+split_after([H | T], 1, [H], T) :- !.
+split_after([H | T], Index, [H | Hret], Tret) :- Index > 1, Ind1 is Index - 1, split_after(T, Ind1, Hret, Tret).
+
+my_append([], L, L).
+my_append(L, [], L).
+my_append([H|T], L, [H|AppendedTL] ) :- my_append(T, L, AppendedTL).
+squish([],[]) :- !.
+squish([[H | IT] | T], TrueRet) :- squish(IT, ITRet), squish(T, TRet), my_append(ITRet, TRet, Ret), sort([H | Ret], TrueRet), !.
+squish([H | T], TrueRet) :- squish(T, Ret), sort([H | Ret], TrueRet).
 
 
+eval_term([C | E], X, R) :- E > 1, !, EE is E - 1, XX is X * X, eval_term([C | EE], XX, R).
+eval_term([C | 1], X, R) :- R is X * C.
+eval_term([C | 0], _, C).
 
+eval_poly([], _, 0).
+eval_poly([H | T], X, R) :- 
+        eval_term(H, X, TR), 
+        eval_poly(T, X, PR), 
+        R is PR + TR, !.
 
-
+:- dynamic f/2.
+gen_poly(Lst) :- asserta(
+        f(Input, Output) :- eval_poly(Lst, Input, Output)).
 
 
 
