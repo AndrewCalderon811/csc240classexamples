@@ -1,8 +1,17 @@
 
-color(red).
-color(green).
-color(blue).
-states(R, G, G, R, B) :- color(R), color(G), color(B).
+states(TX, OK, LA, MS, AR) :- 
+        member(TX, ['red', 'green', 'blue']),
+        member(OK, ['red', 'green', 'blue']),
+        member(LA, ['red', 'green', 'blue']),
+        member(MS, ['red', 'green', 'blue']),
+        member(AR, ['red', 'green', 'blue']),
+        TX \= OK,
+        TX \= LA,
+        TX \= AR,
+        OK \= AR,
+        AR \= LA,
+        AR \= MS,
+        LA \= MS.
 
 
 myabs(X, Y) :- X < 0, Y is X * -1, !.
