@@ -13,3 +13,21 @@
         (cons (func (car lst1) (car lst2)) (for_loop (cdr lst1) (cdr lst2))))))
 
 (for_loop x y)
+
+(define index 0)
+
+(define whereis
+  (lambda (x lst)
+    (+ index 1)
+    (if (null? lst)
+        -1
+        (if (eq? x (car lst))
+            index
+            (whereis x (cdr lst))))))
+
+
+(define list-stuff
+  (lambda (Lst Index)
+    (if (null? Lst)
+        )
+

@@ -23,4 +23,12 @@ int main(void){
 
 
 
-int my_strlen()
+int my_strlen(const char *str){
+    int ret = 0;
+
+    while(*str != '\0'){
+        ret++;
+    };
+
+    return ret;
+}
